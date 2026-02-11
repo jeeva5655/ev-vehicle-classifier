@@ -1,0 +1,26 @@
+# Dependencies
+node_modules/
+__pycache__/
+*.pyc
+*.pyo
+venv/
+.env
+
+# Training data (too large for GitHub)
+MLDemoProj/
+
+# Model files (large binary, host on HF Spaces)
+models/
+
+# IDE
+.vscode/
+
+# Runtime artifacts
+static/test.jpg
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Build output
+frontend/dist/

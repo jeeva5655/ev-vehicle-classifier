@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EV Vehicle Classifier</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            padding: 40px;
+            max-width: 600px;
+            width: 100%;
+        }
+        
+        h2 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        input[type="file"] {
+            padding: 15px;
+            border: 2px dashed #667eea;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        input[type="file"]:hover {
+            border-color: #764ba2;
+            background: #f8f9ff;
+        }
+        
+        input[type="submit"] {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 10px;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        
+        input[type="submit"]:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+        
+        .result {
+            text-align: center;
+            margin: 30px 0;
+        }
+        
+        .result h1 {
+            color: #333;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        
+        .result img {
+            max-width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            margin-top: 20px;
+        }
+        
+        .upload-text {
+            text-align: center;
+            color: #666;
+            font-size: 1.2em;
+            padding: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>🚗 EV Vehicle Classifier 🚌</h2>
+        
+        <form method="POST" enctype="multipart/form-data">
+            <input type="file" name="image" accept="image/*" required>
+            <input type="submit" value="Classify Vehicle">
+        </form>
+        
+        <div class="result">
+            {% if result and result != "Upload an EV image" %}
+                <h1>Prediction: {{result}}</h1>
+                <img src="/static/test.jpg" alt="Uploaded Image">
+            {% else %}
+                <div class="upload-text">📷 Upload an EV image to classify</div>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>
