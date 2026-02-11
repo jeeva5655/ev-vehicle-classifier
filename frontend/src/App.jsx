@@ -2,7 +2,7 @@ import { useState, useRef, useCallback } from 'react'
 import './index.css'
 
 // ⚠️ UPDATE THIS URL after deploying to Hugging Face Spaces
-const API_URL = import.meta.env.VITE_API_URL || 'https://nowherot-ev-vehicle-classifier.hf.space'
+const API_URL = import.meta.env.VITE_API_URL || 'https://nowherotime-ev-vehicle-classifier.hf.space'
 
 function App() {
   const [selectedFile, setSelectedFile] = useState(null)
